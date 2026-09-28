@@ -11,16 +11,26 @@ class Queue:
   def enqueue(self,data):
     if self._c==len(self._a):
       print("overflow")
-    else:
-      self._a[self._c]=data
+      return
+    self._a[self._c]=data
     self._c+=1
 
   def rear(self):
     return self._a[self._c-1]
-  
-  def dequeu(self):
-    pass
-
+  def dequeue(self):
+    if self._c==0:
+      print("underflow")
+      return
+    temp=self._a[self._front]
+    for i in range(1,self._c):
+      self._a[i-1]=self._a[i]
+    self._a[self._c-1]=None
+    self._c-=1
+    return temp
+    def isempty(self):
+      return self._c==0
+    def isfull(self):
+      return self._c==len(self._a)
 
 queue=Queue()
 queue.enqueue(10)
@@ -29,6 +39,11 @@ queue.enqueue(30)
 queue.enqueue(40)
 queue.enqueue(50)
 
-
+print(queue.dequeue())
+print(queue.dequeue())
+print(queue.dequeue())
+print(queue.dequeue())
+print(queue.dequeue())
+print(queue.dequeue())
 print(queue.peek())
 print(queue.rear())
