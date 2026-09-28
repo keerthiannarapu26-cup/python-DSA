@@ -27,10 +27,10 @@ class Queue:
     self._a[self._c-1]=None
     self._c-=1
     return temp
-    def isempty(self):
-      return self._c==0
-    def isfull(self):
-      return self._c==len(self._a)
+  def isempty(self):
+    return self._c==0
+  def isfull(self):
+    return self._c==len(self._a)
 
 queue=Queue()
 queue.enqueue(10)
